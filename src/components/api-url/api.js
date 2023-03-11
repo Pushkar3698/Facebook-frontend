@@ -1,1 +1,1 @@
-export const API_URL = "https://facebook-backend-own.onrender.com";
+export const API_URL = "https://fb-backend-ildh.onrender.com";
