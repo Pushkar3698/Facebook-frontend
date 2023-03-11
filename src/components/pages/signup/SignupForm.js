@@ -3,6 +3,7 @@ import { userData } from "./data";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 import { API_URL } from "../../api-url/api";
+import Loader from "../../components/Loader/Loader";
 
 export const SignupForm = () => {
   const [userDetails, setuserDetails] = useState({
@@ -15,7 +16,9 @@ export const SignupForm = () => {
     dobMonth: "",
     dobYear: "",
   });
-  console.log(userDetails);
+
+  const [loading, setloading] = useState(false);
+
   const [error, seterror] = useState({
     error: false,
     message: null,
@@ -69,6 +72,8 @@ export const SignupForm = () => {
   };
 
   const onSubmit = async (data) => {
+    setloading(true);
+
     const res = await fetch(`${API_URL}/signup`, {
       method: "PUT",
       headers: {
@@ -78,7 +83,6 @@ export const SignupForm = () => {
     });
 
     const resData = await res.json();
-    console.log(resData);
 
     if (!res.ok) {
       seterror({ error: true, message: resData.message });
@@ -242,8 +246,14 @@ export const SignupForm = () => {
           out at any time
         </p>
       </div>
+
       <div className="signup-actions">
-        <button onClick={() => onSubmit(userDetails)}>Sign Up</button>
+        <button
+          onClick={() => onSubmit(userDetails)}
+          style={{ padding: `${loading ? "0" : "25px"}` }}
+        >
+          Sign Up {loading && <Loader login={true} />}
+        </button>
         <NavLink to={"/"}>Already have an account?</NavLink>
       </div>
     </div>
