@@ -3,6 +3,7 @@ import Comment from "./Comment";
 import CreateComment from "./CreateComment";
 
 const CommentBox = ({ modalHandler, comments, data, token }) => {
+  console.log(comments[0].userId.firstname);
   return (
     <>
       <div className="comments-container">
@@ -13,7 +14,9 @@ const CommentBox = ({ modalHandler, comments, data, token }) => {
             key={comments[comments.length - 1]._id}
             id={comments[comments.length - 1]._id}
             user={
-              comments[0].userId.firstname + " " + comments[0].userId.lastname
+              comments[comments.length - 1].userId.firstname +
+              " " +
+              comments[comments.length - 1].userId.lastname
             }
             number={0}
           />
