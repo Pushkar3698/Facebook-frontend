@@ -159,7 +159,7 @@ export const Post = ({
             color: `${commentBox ? "blue" : ""}`,
             fontWeight: `${commentBox ? "600" : ""}`,
           }}
-          onClick={() => setcommentBox(!commentBox)}
+          onClick={() => setcommentBox((prev) => !prev)}
         >
           Comment
         </div>

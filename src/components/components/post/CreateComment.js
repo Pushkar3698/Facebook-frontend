@@ -20,6 +20,7 @@ const CreateComment = ({ token, data }) => {
       body: JSON.stringify(postData),
     });
     const res = await fetchData.json();
+    console.log(res);
     ref.current.value = "";
   };
 
