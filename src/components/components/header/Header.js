@@ -19,9 +19,6 @@ import { user_Logout } from "../../redux/actions";
 
 export const Header = ({ userData }) => {
   const dispatch = useDispatch();
-  // const { firstname, lastname, picture } = useSelector(
-  //   (state) => state.reducer.userData
-  // );
 
   const userLogout = () => {
     dispatch(user_Logout());

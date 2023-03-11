@@ -13,14 +13,16 @@ import {
   update_Like,
 } from "../../redux/actions.js";
 import { Post } from "../post/Post.js";
+import { API_URL } from "../../api-url/api.js";
 
-const socket = openSocket.connect("http://localhost:8000");
+const socket = openSocket.connect(`${API_URL}`);
 
 export const FeedUI = ({ userData }) => {
   const [loading, setloading] = useState(false);
   const [error, seterror] = useState(false);
   const dispatch = useDispatch();
   const { token, posts } = useSelector((state) => state.reducer);
+
   const loader = (val) => {
     setloading(val);
   };
@@ -28,7 +30,7 @@ export const FeedUI = ({ userData }) => {
   const getPosts = async () => {
     try {
       setloading(true);
-      const fetchData = await fetch("http://localhost:8000/feed/getPosts", {
+      const fetchData = await fetch(`${API_URL}/feed/getPosts`, {
         method: "GET",
 
         headers: {

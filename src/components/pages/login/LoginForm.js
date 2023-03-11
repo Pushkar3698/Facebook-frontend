@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getUserLoginData } from "../../redux/actions";
 import Loader from "../../components/Loader/Loader";
+import { API_URL } from "../../api-url/api";
 
 export const LoginForm = () => {
   const [loginData, setloginData] = useState({
@@ -35,7 +36,7 @@ export const LoginForm = () => {
       }
       setloader(true);
 
-      const res = await fetch("http://localhost:8000/login", {
+      const res = await fetch(`${API_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { API_URL } from "../../api-url/api";
 
 const CreateComment = ({ token, data }) => {
   const ref = useRef();
@@ -9,7 +10,7 @@ const CreateComment = ({ token, data }) => {
       comment: ref.current.value,
     };
 
-    const fetchData = await fetch("http://localhost:8000/feed/addComment", {
+    const fetchData = await fetch(`${API_URL}/feed/addComment`, {
       method: "POST",
 
       headers: {

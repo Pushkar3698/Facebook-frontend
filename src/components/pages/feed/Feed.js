@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import { API_URL } from "../../api-url/api";
 import { FeedUI } from "../../components/feedUI/FeedUI";
 
 import { Header } from "../../components/header/Header";
@@ -15,7 +16,7 @@ export const Feed = ({ token }) => {
 
   const getUserDetails = async () => {
     try {
-      const fetchData = await fetch("http://localhost:8000/feed/home", {
+      const fetchData = await fetch(`${API_URL}/feed/home`, {
         method: "POST",
         headers: {
           Authorization: "Bearer=" + token,

@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { userData } from "./data";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
+import { API_URL } from "../../api-url/api";
 
 export const SignupForm = () => {
   const [userDetails, setuserDetails] = useState({
@@ -68,7 +69,7 @@ export const SignupForm = () => {
   };
 
   const onSubmit = async (data) => {
-    const res = await fetch("http://localhost:8000/signup", {
+    const res = await fetch(`${API_URL}/signup`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

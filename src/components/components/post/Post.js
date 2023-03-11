@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import CommentBox from "./CommentBox";
 import ReactDOM from "react-dom";
 import Comment from "./Comment";
+import { API_URL } from "../../api-url/api";
 
 const CommentModal = ({ modalHandler, comments }) => {
   return (
@@ -70,7 +71,7 @@ export const Post = ({
   };
 
   const deletePostHandler = async () => {
-    const fetchData = await fetch("http://localhost:8000/feed/deletePost", {
+    const fetchData = await fetch(`${API_URL}/feed/deletePost`, {
       method: "POST",
 
       headers: {
@@ -88,7 +89,7 @@ export const Post = ({
   };
 
   const likeIncreaseHandler = async () => {
-    const fetchData = await fetch("http://localhost:8000/feed/addLike", {
+    const fetchData = await fetch(`${API_URL}/feed/addLike`, {
       method: "POST",
 
       headers: {

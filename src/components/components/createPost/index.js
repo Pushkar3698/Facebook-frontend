@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { API_URL } from "../../api-url/api";
 import { Feeling, LiveVideo, Photo } from "../../resources/svg";
 import "./style.css";
 
@@ -28,7 +29,7 @@ export default function CreatePost({ user, loader }) {
       form.append("createdBy", user._id.toString());
       form.append("createdAt", new Date());
 
-      const fetchData = await fetch("http://localhost:8000/feed/createPost", {
+      const fetchData = await fetch(`${API_URL}/feed/createPost`, {
         method: "POST",
         body: form,
       });
