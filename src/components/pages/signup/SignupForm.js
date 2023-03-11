@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { userData } from "./data";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
@@ -39,6 +39,24 @@ export const SignupForm = () => {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const timeOut = setTimeout(() => {
+      if (error.error) {
+        seterror((prev) => {
+          return {
+            error: false,
+            message: null,
+          };
+        });
+        setloading(false);
+      }
+    }, 3000);
+
+    return () => {
+      clearTimeout(timeOut);
+    };
+  }, [error]);
+
   const getDateOfbirth = (ref, val) => {
     setuserDetails((prev) => {
       const newObj = { ...prev };
@@ -72,6 +90,34 @@ export const SignupForm = () => {
   };
 
   const onSubmit = async (data) => {
+    const {
+      firstname,
+      lastname,
+      email,
+      password,
+      gender,
+      dobDate,
+      dobMonth,
+      dobYear,
+    } = data;
+
+    // if (
+    //   firstname === "" ||
+    //   !email.includes("@") ||
+    //   password === "" ||
+    //   gender === "" ||
+    //   email === ""
+    // ) {
+    //   seterror((prev) => {
+    //     return {
+    //       error: true,
+    //       message: "Please fill in all of the empty fields",
+    //     };
+    //   });
+
+    //   return;
+    // }
+
     setloading(true);
 
     const res = await fetch(`${API_URL}/signup`, {
