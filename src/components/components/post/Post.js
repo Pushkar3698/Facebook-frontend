@@ -8,7 +8,7 @@ import { API_URL } from "../../api-url/api";
 
 const CommentModal = ({ modalHandler, comments }) => {
   return (
-    <div className="comment-modal">
+    <div className="comment-modal" onClick={() => modalHandler(false)}>
       <motion.div
         className="show-comments"
         initial={{ y: 100 }}
@@ -16,7 +16,7 @@ const CommentModal = ({ modalHandler, comments }) => {
         transition={{ ease: "easeInOut", duration: 0.3 }}
       >
         <div className="close-box">
-          <p onClick={() => modalHandler(false)}> X</p>
+          <p> X</p>
         </div>
         <div>
           {comments.map((el, i) => (
@@ -50,9 +50,9 @@ export const Post = ({
   likes,
   userId,
   token,
-  comments,
   imagePath,
   filename,
+  comments,
 }) => {
   const [deleteError, setdeleteError] = useState(false);
   const [commentBox, setcommentBox] = useState(false);

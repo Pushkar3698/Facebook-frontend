@@ -41,12 +41,16 @@ const reducer = (state = INITIAL_STATE, action) => {
       posts: action.payload,
     };
   } else if (action.type === TYPE.updateLike) {
-    const { _id } = action.payload;
-    const findIndex = state.posts.findIndex(
+    const { _id, likes, comments } = action.payload;
+
+    const postIndex = state.posts.findIndex(
       (el) => el._id.toString() === _id.toString()
     );
+
     const posts = [...state.posts];
-    posts[findIndex] = action.payload;
+
+    posts[postIndex].likes = likes;
+    posts[postIndex].comments = comments;
 
     return {
       ...state,

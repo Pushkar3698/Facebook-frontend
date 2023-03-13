@@ -122,7 +122,7 @@
 }
 .comment-modal {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: rgba(170, 170, 170, 0.23);
   position: fixed;
   top: 0;

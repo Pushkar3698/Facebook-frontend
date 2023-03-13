@@ -7,6 +7,7 @@ export const TYPE = {
   updateLike: "UPDATE_LIKE",
   deletePost: "DELETE_POST",
   addComment: "ADD_COMMENT",
+  getComments: "Get_Comments",
 };
 
 export const getUserLoginData = (data) => {
