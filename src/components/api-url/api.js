@@ -1,2 +1,1 @@
-export const API_URL = "http://localhost:8000";
-// "https://fb-backend-ildh.onrender.com"
+export const API_URL = "https://fb-backend-ildh.onrender.com";
