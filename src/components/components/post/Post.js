@@ -133,7 +133,7 @@ export const Post = ({
       </div>
       {imagePath && (
         <div className="post-image">
-          <img src={"http://localhost:8000/" + filename} alt="" />
+          <img src={imagePath} alt="" />
         </div>
       )}
       <div className="post-likes">

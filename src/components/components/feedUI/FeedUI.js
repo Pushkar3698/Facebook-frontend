@@ -100,7 +100,7 @@ export const FeedUI = ({ userData }) => {
               comments={el.comments}
               imagePath={el.imagePath}
               filename={el.imageFileName}
-              commentLength={el.comments.length}
+              
             />
           ))}
       </div>
