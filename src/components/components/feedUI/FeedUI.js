@@ -70,6 +70,7 @@ export const FeedUI = ({ userData }) => {
       socket.removeAllListeners();
     };
   }, []);
+  console.log(loading);
 
   return (
     <div className="feed-container">
@@ -80,7 +81,7 @@ export const FeedUI = ({ userData }) => {
 
       {loading && (
         <div className="feed-loader">
-          <Loader />
+          <Loader login={true} />
         </div>
       )}
       <div className="posts-container">
@@ -100,7 +101,6 @@ export const FeedUI = ({ userData }) => {
               comments={el.comments}
               imagePath={el.imagePath}
               filename={el.imageFileName}
-              
             />
           ))}
       </div>
