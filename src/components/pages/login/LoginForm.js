@@ -13,9 +13,11 @@ export const LoginForm = () => {
 
   const [error, seterror] = useState(null);
   const [loader, setloader] = useState(false);
+  const [checkbox, setcheckbox] = useState(false);
 
   const emailRef = useRef();
   const passRef = useRef();
+  const passwordRef = useRef();
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -93,13 +95,22 @@ export const LoginForm = () => {
           onChange={() => getLoginData("email", emailRef)}
         />
         <input
-          type="password"
+          type={checkbox ? "text" : "password"}
           name="password"
           id=""
           placeholder="Password"
           ref={passRef}
           onChange={() => getLoginData("password", passRef)}
         />
+      </div>
+      <div className="show-password">
+        <input
+          type="checkbox"
+          name=""
+          id=""
+          onChange={(e) => setcheckbox(e.target.checked)}
+        />
+        <label htmlFor="">show password</label>
       </div>
       <div className="login-btn">
         <button
